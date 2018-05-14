@@ -1,6 +1,7 @@
 # Distribution / packaging
 dist/
 node_modules
+coverage/
 
 # Unit test / coverage reports
 htmlcov/
