@@ -24,8 +24,9 @@ $logo-left: 10px;
     height: 65px;
     top: 15px;
     left: $logo-left;
-    background-image: url("../../assets/img/kengurokleo-logo.svg");
-    background-size: cover;
+    mask-image: url("../../assets/img/kengurokleo-logo.svg");
+    mask-size: cover;
+    background-color: $primary-light;
 
     &:hover {
       cursor: pointer;

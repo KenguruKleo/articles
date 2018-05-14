@@ -1,5 +1,5 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -57,22 +57,19 @@ module.exports = {
         test: /\.s?css$/,
         include: path.resolve(__dirname, 'client'),
         exclude: /(node_modules)/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: cssLocalIdentName,
-              },
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: cssLocalIdentName,
             },
-            {
-              loader: 'sass-loader',
-            },
-          ],
-        }),
+          },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
       {
         test: /\.(png|gif|jpe?g|svg|ttf|otf|eot|woff2?)$/,
@@ -81,13 +78,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'static/styles.[chunkhash].css',
       publicPath: '/',
       allChunks: true,
     }),
     new HtmlWebpackPlugin({
-      title: 'Recipes',
+      title: 'Hello Fresh',
       template: 'client/index.html',
       filename: 'index.html',
       inject: 'body',

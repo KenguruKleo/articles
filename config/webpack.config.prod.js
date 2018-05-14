@@ -1,17 +1,17 @@
 const config = require('../webpack.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 config.plugins = [
-  new ExtractTextPlugin({
+  new MiniCssExtractPlugin({
     filename: 'static/styles.[chunkhash].css',
     publicPath: '/',
     allChunks: true,
   }),
   new HtmlWebpackPlugin({
-    title: 'Recipes',
+    title: 'Hello Fresh',
     template: 'client/index.html',
     filename: 'index.html',
     inject: 'body',
