@@ -1,0 +1,38 @@
+# Distribution / packaging
+dist/
+node_modules
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+
+# docker-compose mounted volumes
+pgdata/
+
+# docker-compose env files
+db.dev.env
+
+# IDEA
+.idea/
+
+# VisualStudio Code
+.vscode
+
+# Project temporary files
+tmp
+
+# mac os
+.DS_Store

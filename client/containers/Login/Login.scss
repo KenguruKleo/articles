@@ -1,0 +1,37 @@
+@import "../../assets/styles/constants";
+@import "../../assets/styles/colors";
+
+.login {
+  padding: 0 10px;
+
+  .topic {
+    line-height: 1.28571;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  hr {
+    margin-top: 20px;
+  }
+
+  .button {
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (min-width: $media-step-medium) {
+  .container {
+    .content {
+      width: $content-width-medium / 1.25;
+    }
+  }
+}
+
+@media only screen and (min-width: $media-step-large) {
+  .container {
+    .content {
+      width: $content-width-large / 1.5;
+    }
+  }
+}

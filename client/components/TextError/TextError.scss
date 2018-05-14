@@ -1,0 +1,7 @@
+@import '../../assets/styles/colors';
+
+.error {
+  color: $error-color;
+  background: $error-background-color;
+  padding: 10px;
+}

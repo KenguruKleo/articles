@@ -1,0 +1,109 @@
+@import "../../assets/styles/constants";
+@import "../../assets/styles/colors";
+
+$logo-width: 100px;
+$logo-left: 10px;
+
+.header {
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  height: $header-height;
+  box-sizing: border-box;
+  z-index: 2;
+  position: relative;
+
+  @media only screen and (min-width: $media-step-small) {
+    position: fixed;
+    top: 0;
+  }
+
+  .logo {
+    position: absolute;
+    width: $logo-width;
+    height: 65px;
+    top: 15px;
+    left: $logo-left;
+    background-image: url("../../assets/img/kengurokleo-logo.svg");
+    background-size: cover;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    margin-left: $logo-width + $logo-left;
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+  }
+
+  .logo_text {
+    font-size: 25px;
+    align-self: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $primary-light;
+    }
+
+    @media only screen and (max-width: $media-step-small) {
+      display: none;
+    }
+  }
+
+  .menu {
+    display: flex;
+    height: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    flex-direction: row;
+    padding: 0 20px;
+
+    .menu_item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: inset 0 -4px 0 $primary-light;
+        color: $primary-light;
+      }
+    }
+
+    @media only screen and (max-width: $media-step-medium) {
+      display: none;
+    }
+  }
+
+  .user_block {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+    height: 100%;
+    flex-direction: row;
+    padding: 0 20px;
+
+    .user_logged {
+      display: flex;
+      align-items: center;
+
+      @media only screen and (max-width: $media-step-small) {
+        flex-wrap: wrap;
+
+        span, button {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  .user_name {
+    padding: 0 10px;
+    font-size: 18px;
+    color: $primary-normal;
+  }
+}

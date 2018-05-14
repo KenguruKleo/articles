@@ -1,0 +1,16 @@
+.half_star {
+  svg {
+    clip-path: inset(0px 8px 0px 0px);
+  }
+}
+
+.half_filled_star {
+  position: relative;
+
+  .half_star {
+    position: absolute;
+    left: 0;
+    margin: 0 !important;
+    padding: 0;
+  }
+}

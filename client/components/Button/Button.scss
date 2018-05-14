@@ -1,0 +1,37 @@
+@import '../../assets/styles/colors';
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+
+  .button_content {
+    display: inline-block;
+    min-width: 120px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px $primary-light inset;
+    color: $primary-light;
+    padding: 12px 30px;
+    text-align: center;
+
+    &:hover {
+      background-color: $primary-normal;
+      color: $white;
+      box-shadow: 0 0 0 1px $primary-normal inset;
+    }
+  }
+
+  &.disable {
+    cursor: unset;
+
+    .button_content {
+      box-shadow: 0 0 0 1px $gray inset;
+      color: $gray;
+
+      &:hover {
+        background-color: unset;
+        box-shadow: 0 0 0 1px $gray inset;
+        color: $gray;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "../../assets/styles/constants";
+@import "../../assets/styles/colors";
+
+.recipe {
+  font-family: sans-serif;
+
+  .image {
+    position: relative;
+    padding-bottom: 200px;
+    width: 100%;
+    overflow: hidden;
+    background-color: $gray;
+
+    @media only screen and (min-width: $media-step-small) {
+      padding-bottom: 300px;
+    }
+    @media only screen and (min-width: $media-step-medium) {
+      padding-bottom: 400px;
+    }
+    @media only screen and (min-width: $media-step-large) {
+      padding-bottom: 500px;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+  }
+
+  .container {
+    background-color: $container-background-light;
+
+    .content {
+      background-color: $white;
+    }
+  }
+
+  .recipe_details {
+    position: relative;
+    margin-top: -100px;
+    background-color: white;
+  }
+}

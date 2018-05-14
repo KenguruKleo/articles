@@ -1,0 +1,35 @@
+@import '../../assets/styles/colors';
+
+.rate_level {
+
+  .fill_full {
+    .half_star,
+    .star {
+      path {
+        fill: $primary-light;
+      }
+    }
+  }
+
+  .fill_empty {
+    .star,
+    .half_star {
+      path {
+        fill: $gray;
+      }
+    }
+  }
+
+  .half_filled_star {
+    .star {
+      path {
+        fill: $gray;
+      }
+    }
+    .half_star {
+      path {
+        fill: $primary-light;
+      }
+    }
+  }
+}

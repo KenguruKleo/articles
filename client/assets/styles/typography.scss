@@ -1,0 +1,31 @@
+$base-font-size: 10px;
+$base-font-weight: normal;
+
+h1, .h1 {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.14;
+}
+
+h2, .h2 {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+h3, .h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+h4, h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+label {
+  font-size: 14px;
+  line-height: 1.43;
+}

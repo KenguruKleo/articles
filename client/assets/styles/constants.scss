@@ -1,0 +1,14 @@
+$opacity8: 0.8;
+$opacity5: 0.5;
+$opacity3: 0.3;
+$opacity2: 0.2;
+
+$media-step-large: 1200px;
+$media-step-medium: 1024px;
+$media-step-small: 640px;
+
+$header-height: 80px;
+
+$content-width-large: $media-step-large - 60px;
+$content-width-medium: $media-step-medium - 60px;
+$content-width-small: calc(100% - 20px);

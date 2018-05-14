@@ -1,0 +1,15 @@
+@import "../../assets/styles/colors";
+
+.footer {
+  border-top: solid 1px $hr-color;
+  background-color: $white;
+
+  .terms {
+    color: $gray;
+    font-size: 14px;
+  }
+
+  .terms_text {
+    padding: 0 5px;
+  }
+}

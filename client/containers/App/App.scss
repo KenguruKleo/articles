@@ -1,0 +1,12 @@
+@import "../../assets/styles/constants";
+@import "../../assets/styles/colors";
+
+.main {
+  @media only screen and (min-width: $media-step-small) {
+    margin-top: $header-height;
+  }
+}
+
+.content {
+  background-color: $content-background;
+}
