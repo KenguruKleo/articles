@@ -1,5 +1,10 @@
 Recipes
 =============================================
+**Challenge:**
+
+Create front & back from scratch for show recipes list using React+Redux+clear CSS(SASS)
+Add future like and rate items
+Implement login window with token
 
 Description
 -----------
@@ -14,7 +19,7 @@ Require:
 - npm >= 5
  
 Install:
-- npm init
+- npm install
 
 Run
 ------------
