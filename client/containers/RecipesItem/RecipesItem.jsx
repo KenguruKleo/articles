@@ -15,7 +15,7 @@ class RecipesItem extends React.PureComponent {
     clickSaveRecipeRate: PropTypes.func.isRequired,
     clickLikeRecipe: PropTypes.func.isRequired,
     goToLogin: PropTypes.func.isRequired,
-    params: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
     recipe: PropTypes.object,
     rateInfo: PropTypes.object,
     isLiked: PropTypes.bool,
@@ -29,7 +29,7 @@ class RecipesItem extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.props.fetchRecipesItem(this.props.params.id);
+    this.props.fetchRecipesItem(this.props.match.params.id);
   }
 
   getRecipe = () => {

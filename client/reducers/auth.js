@@ -65,10 +65,22 @@ const errorText = (state = '', action = {}) => {
   }
 };
 
+const returnPathAfterSuccess = (state = '', action = {}) => {
+  switch (action.type) {
+    case types.SET_RETURN_PATH_AFTER_AUTH:
+      return action.returnPathAfterSuccess;
+    case types.RESET_RETURN_PATH_AFTER_AUTH:
+      return '';
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   isPending,
   loggedIn,
   userName,
   token,
   errorText,
+  returnPathAfterSuccess,
 });

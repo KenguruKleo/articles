@@ -40,4 +40,7 @@ export const LOGOUT_CLICK = 'LOGOUT_CLICK';
 export const GO_TO_PAGE = 'GO_TO_PAGE';
 export const GO_TO_ROOT = 'GO_TO_ROOT';
 export const GO_TO_LOGIN = 'GO_TO_LOGIN';
+
+export const SET_RETURN_PATH_AFTER_AUTH = 'SET_RETURN_PATH_AFTER_AUTH';
+export const RESET_RETURN_PATH_AFTER_AUTH = 'RESET_RETURN_PATH_AFTER_AUTH';
 // </editor-fold>

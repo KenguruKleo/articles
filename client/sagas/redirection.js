@@ -1,17 +1,22 @@
-import { put, takeLatest } from 'redux-saga/effects';
-import { push } from 'react-router-redux';
+import { takeLatest, put, call } from 'redux-saga/effects';
+import history from '../services/history';
 import * as types from '../actions/types';
 
 export function* goToPage({ path }) {
-  yield put(push(path));
+  yield call(history.push, path);
 }
 
 export function* goToRoot() {
-  yield put(push('/'));
+  yield call(history.push, '/');
 }
 
 export function* goToLogin() {
-  yield put(push('/login'));
+  const returnPathAfterSuccess = history.location.pathname;
+  yield put({
+    type: types.SET_RETURN_PATH_AFTER_AUTH,
+    returnPathAfterSuccess,
+  });
+  yield call(history.push, '/login');
 }
 
 export default function saga() {

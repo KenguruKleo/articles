@@ -11,10 +11,9 @@ export function* loginRequest() {
     const { userName, password } = yield select(state => state[pathForLoginData]);
     const result = yield call(Api.login, { userName: userName.value, password: password.value });
     const data = result.data || {};
-    yield put({ type: types.LOGIN_SUCCESS, payload: data });
     yield put(resetFieldValue({ path: pathForLoginData, fieldName: 'userName' }));
     yield put(resetFieldValue({ path: pathForLoginData, fieldName: 'password' }));
-    yield put({ type: types.GO_TO_ROOT });
+    yield put({ type: types.LOGIN_SUCCESS, payload: data });
   } catch (e) {
     const status = _get(e, 'response.status');
     let errorText = (_get(e, 'response.data.error')) || e.message;
@@ -41,9 +40,20 @@ export function* resetErrorMessage(action = {}) {
   } catch (e) {}; // eslint-disable-line
 }
 
+export function* redirectAfterSuccessAuth() {
+  try {
+    const path = yield select(state => state.auth.returnPathAfterSuccess);
+    yield put({
+      type: types.GO_TO_PAGE,
+      path,
+    });
+  } catch (e) {}; // eslint-disable-line
+}
+
 export default function saga() {
   return [
     takeLatest(types.LOGIN_CLICK, loginRequest),
     takeLatest(types.CHANGE_FIELD_VALUE, resetErrorMessage),
+    takeLatest(types.LOGIN_SUCCESS, redirectAfterSuccessAuth),
   ];
 }
