@@ -43,6 +43,11 @@ Test users
 - test@user.com / password
 - tim@walker.com / password
 
+Bundle analyzer
+---------------
+- npm run bundle:analyze
+- go to [localhost:8888](http://localhost:8888)
+
 Heroku
 -----------
 Open [Recipes on Heroku](https://kengurukleo-recipes.herokuapp.com)
