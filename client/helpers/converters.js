@@ -1,5 +1,5 @@
-export const getKcalFromRecipe = (recipe = {}) => {
-  const foundKcal = (recipe.nutrition || [])
+export const getKcalFromArticle = (article = {}) => {
+  const foundKcal = (article.nutrition || [])
     .find(({ name }) => name === 'Calories') || {};
   return foundKcal;
 };
@@ -9,8 +9,8 @@ const loolupTimeUnits = {
   H: 'hours',
 };
 
-export const getPrepTimeFromRecipe = (recipe = {}) => {
-  const time = (recipe.prepTime || '')
+export const getPrepTimeFromArticle = (article = {}) => {
+  const time = (article.prepTime || '')
     .match(/PT(\d+)(M|H)/);
   return {
     prepTime: time && time.length > 0 ? time[1] : '',

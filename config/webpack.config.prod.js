@@ -11,7 +11,7 @@ config.plugins = [
     allChunks: true,
   }),
   new HtmlWebpackPlugin({
-    title: 'Recipes',
+    title: 'Articles',
     template: 'client/index.html',
     filename: 'index.html',
     inject: 'body',

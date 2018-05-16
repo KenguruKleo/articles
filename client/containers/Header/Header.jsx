@@ -53,7 +53,7 @@ class Header extends React.PureComponent {
           <button
             onClick={goToRoot}
             className={theme.logo_text}>
-            Recipes
+            Articles
           </button>
           <div className={theme.menu}>
             <button className={theme.menu_item}>Our Plans</button>

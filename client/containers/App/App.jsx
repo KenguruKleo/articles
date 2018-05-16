@@ -4,8 +4,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { themr } from 'react-css-themr';
 import Header from '../Header';
 import Footer from '../Footer';
-import Recipes from '../Recipes';
-import RecipesItem from '../RecipesItem';
+import Articles from '../Articles';
+import ArticlesItem from '../ArticlesItem';
 import Login from '../Login';
 
 import style from './App.scss';
@@ -23,10 +23,10 @@ class App extends React.Component {
       <div className={theme.main}>
         <Header />
         <div className={theme.content}>
-          <Route exact path='/' render={() => <Redirect to={{ pathname: '/recipes' }} />} />
+          <Route exact path='/' render={() => <Redirect to={{ pathname: '/articles' }} />} />
           <Switch>
-            <Route path='/recipes' exact component={Recipes} />
-            <Route path='/recipes/:id' component={RecipesItem} />
+            <Route path='/articles' exact component={Articles} />
+            <Route path='/articles/:id' component={ArticlesItem} />
             <Route path='/login' component={Login} />
           </Switch>
         </div>

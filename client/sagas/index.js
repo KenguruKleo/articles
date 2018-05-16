@@ -2,7 +2,7 @@ import { all, takeLatest } from 'redux-saga/effects';
 import * as types from '../actions/types';
 import auth from './auth';
 import login from './login';
-import recipes from './recipes';
+import articles from './articles';
 import redirection from './redirection';
 
 /** Initial action on app start */
@@ -18,7 +18,7 @@ export default function* root() {
     takeLatest(types.INIT_APP, initApp),
     ...auth(),
     ...login(),
-    ...recipes(),
+    ...articles(),
     ...redirection(),
   ]);
 }
