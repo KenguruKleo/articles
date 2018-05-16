@@ -59,7 +59,7 @@ export function* setArticleRate(payload) {
     if (loggedIn) {
       yield put({
         ...payload,
-        type: types.SET_RECIPE_RATE,
+        type: types.SET_ARTICLE_RATE,
       });
     } else {
       yield put(goToLogin());
@@ -73,7 +73,7 @@ export function* setLikedArticle(payload) {
     if (loggedIn) {
       yield put({
         ...payload,
-        type: types.SET_LIKE_RECIPE,
+        type: types.SET_LIKE_ARTICLE,
       });
     } else {
       yield put(goToLogin());
@@ -86,7 +86,7 @@ export default function saga() {
     takeLatest(types.FETCH_ARTICLES_LIST_REQUEST, fetchArticlesList),
     takeLatest(types.FETCH_ARTICLES_ITEM_REQUEST, fetchArticlesItem),
     takeLatest(types.CLICK_ARTICLES_ITEM, clickArticlesItemOnList),
-    takeLatest(types.CLICK_SAVE_RECIPE_RATE, setArticleRate),
-    takeLatest(types.CLICK_LIKE_RECIPE, setLikedArticle),
+    takeLatest(types.CLICK_SAVE_ARTICLE_RATE, setArticleRate),
+    takeLatest(types.CLICK_LIKE_ARTICLE, setLikedArticle),
   ];
 }

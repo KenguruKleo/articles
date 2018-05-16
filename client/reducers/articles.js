@@ -39,7 +39,7 @@ const data = (state = {}, action = {}) => {
 
 const ratedArticles = (state = {}, action = {}) => {
   switch (action.type) {
-    case types.SET_RECIPE_RATE: {
+    case types.SET_ARTICLE_RATE: {
       const { id, rate, comments } = action.payload;
       return {
         ...state,
@@ -53,7 +53,7 @@ const ratedArticles = (state = {}, action = {}) => {
 
 const likedArticles = (state = {}, action = {}) => {
   switch (action.type) {
-    case types.SET_LIKE_RECIPE:
+    case types.SET_LIKE_ARTICLE:
       return {
         ...state,
         [action.id]: !state[action.id],

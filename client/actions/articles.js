@@ -17,11 +17,11 @@ export const clickOnArticlesItem = id => ({
 });
 
 export const clickSaveArticleRate = payload => ({
-  type: types.CLICK_SAVE_RECIPE_RATE,
+  type: types.CLICK_SAVE_ARTICLE_RATE,
   payload,
 });
 
 export const clickLikeArticle = id => ({
-  type: types.CLICK_LIKE_RECIPE,
+  type: types.CLICK_LIKE_ARTICLE,
   id,
 });
