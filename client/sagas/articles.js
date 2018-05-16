@@ -1,5 +1,5 @@
 import { put, call, takeLatest, select } from 'redux-saga/effects';
-import base64url from 'base64-url';
+import { getArticleId } from '../../common/converters';
 import * as types from '../actions/types';
 import Api from '../services/api';
 import { goToPage, goToLogin } from '../actions/redirect';
@@ -11,9 +11,9 @@ export function* fetchArticlesList({ filters }) {
     const processedData = {
       ...data,
       articles: (data.articles || [])
-        .map((article, index) => ({
+        .map(article => ({
           ...article,
-          id: base64url.encode(article.title || `article-${index}`),
+          id: getArticleId(article),
         })),
     };
     yield put({
@@ -35,7 +35,10 @@ export function* fetchArticlesItem({ id, filters }) {
     const { data } = yield call(Api.fetchArticlesItem, id, { filters });
     yield put({
       type: types.FETCH_ARTICLES_ITEM_SUCCESS,
-      data,
+      data: {
+        ...data,
+        id: getArticleId(data),
+      },
     });
   } catch (e) {
     yield put({

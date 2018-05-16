@@ -1,6 +1,6 @@
 const axios = require('axios');
 const querystring = require('querystring');
-const base64url = require('base64-url');
+const { getArticleKeysFromId } = require('../../common/converters');
 const { newsResourceURL, NEWS_API_KEY } = require('../config');
 
 let token = null;
@@ -34,10 +34,13 @@ const fetchArticlesItem = async (id, queryParams = {}) => {
   if (!token) {
     token = await fetchToken();
   }
+
+  const articleKeys = getArticleKeysFromId(id);
+
   const initParams = {
     language: 'en',
-    q: `"${base64url.decode(id)}"`,
-    sources: 'the-next-web',
+    q: `"${articleKeys.title}"`,
+    sources: articleKeys.source,
   };
   const params = Object.assign({}, initParams, queryParams);
 
