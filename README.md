@@ -17,6 +17,7 @@ Installation
 Require:
 - node >= 8
 - npm >= 5
+- Use [NewsAPI](https://newsapi.org/) to get you own API key, set it into env variable: NEWS_API_KEY
  
 Install:
 - npm install

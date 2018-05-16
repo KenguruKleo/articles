@@ -1,15 +1,24 @@
 import { put, call, takeLatest, select } from 'redux-saga/effects';
+import base64url from 'base64-url';
 import * as types from '../actions/types';
 import Api from '../services/api';
 import { goToPage, goToLogin } from '../actions/redirect';
 import { getIsLoggedIn } from '../selectors/auth';
 
-export function* fetchRecipesList({ filters }) {
+export function* fetchArticlesList({ filters }) {
   try {
-    const { data } = yield call(Api.fetchRecipesList, { filters });
+    const { data } = yield call(Api.fetchArticlesList, { filters });
+    const processedData = {
+      ...data,
+      articles: (data.articles || [])
+        .map((article, index) => ({
+          ...article,
+          id: base64url.encode(article.title || `article-${index}`),
+        })),
+    };
     yield put({
       type: types.FETCH_RECIPES_LIST_SUCCESS,
-      data,
+      data: processedData,
     });
   } catch (e) {
     yield put({
@@ -21,9 +30,9 @@ export function* fetchRecipesList({ filters }) {
   }
 }
 
-export function* fetchRecipesItem({ id, filters }) {
+export function* fetchArticlesItem({ id, filters }) {
   try {
-    const { data } = yield call(Api.fetchRecipesItem, id, { filters });
+    const { data } = yield call(Api.fetchArticlesItem, id, { filters });
     yield put({
       type: types.FETCH_RECIPES_ITEM_SUCCESS,
       data,
@@ -74,8 +83,8 @@ export function* setLikedRecipe(payload) {
 
 export default function saga() {
   return [
-    takeLatest(types.FETCH_RECIPES_LIST_REQUEST, fetchRecipesList),
-    takeLatest(types.FETCH_RECIPES_ITEM_REQUEST, fetchRecipesItem),
+    takeLatest(types.FETCH_RECIPES_LIST_REQUEST, fetchArticlesList),
+    takeLatest(types.FETCH_RECIPES_ITEM_REQUEST, fetchArticlesItem),
     takeLatest(types.CLICK_RECIPES_ITEM, clickRecipesItemOnList),
     takeLatest(types.CLICK_SAVE_RECIPE_RATE, setRecipeRate),
     takeLatest(types.CLICK_LIKE_RECIPE, setLikedRecipe),

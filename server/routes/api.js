@@ -1,9 +1,9 @@
-const recipesController = require('../controllers/recipes');
-const cuisinesController = require('../controllers/cuisines');
+const articlesController = require('../controllers/articles');
+const sourcesController = require('../controllers/sources');
 const { compression } = require('../middlewares');
 
 module.exports = router => {
-  router.get('/api/recipes', compression, recipesController.list);
-  router.get('/api/recipes/:id', compression, recipesController.item);
-  router.get('/api/cuisines', compression, cuisinesController.list);
+  router.get('/api/articles', compression, articlesController.list);
+  router.get('/api/articles/:id', compression, articlesController.item);
+  router.get('/api/sources', compression, sourcesController.list);
 };

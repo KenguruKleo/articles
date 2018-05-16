@@ -27,7 +27,7 @@ class Recipe extends React.PureComponent {
     return (
       <div className={theme.recipe}>
         <div className={theme.image}>
-          <img src={recipe.imageLink} alt={recipe.name} />
+          <img src={recipe.urlToImage} alt={recipe.name} />
         </div>
         <Content theme={theme}>
           <div className={theme.recipe_details}>

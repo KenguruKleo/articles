@@ -29,14 +29,14 @@ class RecipeCard extends React.PureComponent {
         onKeyDown={this.handleClick}
         className={theme.recipe_card}>
         <div className={theme.image}>
-          <img src={recipe.imageLink} alt={recipe.name} />
+          <img src={recipe.urlToImage} alt={recipe.title} />
         </div>
         <div className={theme.description}>
           <div className={theme.title}>
-            {recipe.name}
+            {recipe.author}
           </div>
           <div className={theme.headline}>
-            {recipe.headline}
+            {recipe.title}
           </div>
           <div className={theme.details}>
             <div className={theme.info}>

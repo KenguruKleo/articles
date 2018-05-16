@@ -1,9 +1,9 @@
 import auth from './auth';
-import recipes from './recipes';
+import articles from './articles';
 
 const Api = {
   ...auth,
-  ...recipes,
+  ...articles,
 };
 
 export default Api;

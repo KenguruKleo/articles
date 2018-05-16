@@ -10,7 +10,7 @@
   "scripts": {
     "postinstall": "npm run build:prod",
     "start": "forever ./server/app.js",
-    "server:dev": "nodemon --exec node ./server/app.js --watch server",
+    "server:dev": "nodemon --inspect --exec node ./server/app.js --watch server",
     "server:prod": "forever ./server/app.js",
     "start:dev": "webpack-dev-server --mode=development --progress --hot --inline --host 0.0.0.0 --port 3000 --devtool inline-source-map",
     "build:prod": "rimraf './dist' && webpack -p --mode=production --config ./config/webpack.config.prod.js",
@@ -52,6 +52,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.26.0",
+    "base64-url": "^2.2.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "classname": "0.0.0",

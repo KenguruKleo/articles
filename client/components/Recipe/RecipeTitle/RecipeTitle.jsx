@@ -68,10 +68,10 @@ class RecipeTitle extends React.PureComponent {
       <div className={theme.recipe_title}>
         <div className={theme.text_block}>
           <h1 className={theme.title}>
-            {recipe.name}
+            {recipe.author}
           </h1>
           <h2 className={theme.headline}>
-            {recipe.headline}
+            {recipe.title}
           </h2>
           <div className={theme.rate}>
             <RateLevel theme={theme} rate={rate} />

@@ -13,7 +13,7 @@ export const getPrepTimeFromRecipe = (recipe = {}) => {
   const time = (recipe.prepTime || '')
     .match(/PT(\d+)(M|H)/);
   return {
-    prepTime: time[1] || '',
-    prepTimeUnit: loolupTimeUnits[time[2] || ''],
+    prepTime: time && time.length > 0 ? time[1] : '',
+    prepTimeUnit: loolupTimeUnits[time && time.length > 1 ? time[2] : ''],
   };
 };
