@@ -14,10 +14,8 @@ module.exports = {
   },
 
   logout(req, res) {
-    req.session.destroy(() => {
-      res.send({ token: '' });
-    });
-    console.log(req.session);
+    req.session = null;
+    res.send({ token: '' });
   },
 
   async signup(req, res, next) {
