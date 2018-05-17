@@ -37,11 +37,14 @@ const jwtLoginStrategy = new JwtStrategy(jwtOptions, async (payload, done) => {
 });
 
 passport.serializeUser((user, done) => {
-  done(null, user);
+  console.log(user);
+  done(null, user.id);
 });
 
-passport.deserializeUser((user, done) => {
+passport.deserializeUser(async (userId, done) => {
+  const user = await User.findById(userId);
   done(null, user);
+  console.log(user);
 });
 
 passport.use(jwtLoginStrategy);

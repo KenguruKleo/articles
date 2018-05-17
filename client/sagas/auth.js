@@ -29,6 +29,12 @@ export function* loginRequest() {
   }
 }
 
+export function* logoutRequest() {
+  try {
+    yield call(Api.logout);
+  } catch (e) {} // eslint-disable-line
+}
+
 export function* resetErrorMessage(action = {}) {
   try {
     if (action.path === pathForLoginData) {
@@ -55,5 +61,6 @@ export default function saga() {
     takeLatest(types.LOGIN_CLICK, loginRequest),
     takeLatest(types.CHANGE_FIELD_VALUE, resetErrorMessage),
     takeLatest(types.LOGIN_SUCCESS, redirectAfterSuccessAuth),
+    takeLatest(types.LOGOUT_CLICK, logoutRequest),
   ];
 }

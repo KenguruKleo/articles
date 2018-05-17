@@ -19,7 +19,15 @@ function start() {
   app.use(cors());
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
-  app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+  app.use(expressSession({
+    unset: 'destroy',
+    secret: config.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: config.SESSION_MAX_AGE,
+    },
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
 

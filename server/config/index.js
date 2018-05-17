@@ -13,4 +13,6 @@ module.exports = {
   jwt_secret: devConfig.jwt_secret || process.env.APP_JWT_SECRET || 'you must specify JWT secret',
   NEWS_API_KEY: devConfig.NEWS_API_KEY || process.env.NEWS_API_KEY || 'you must specify newsapi.org KEY',
   newsResourceURL: devConfig.newsResourceURL || 'https://newsapi.org/v2',
+  SESSION_SECRET: devConfig.SESSION_SECRET || process.env.SESSION_SECRET || 'specify session secret',
+  SESSION_MAX_AGE: devConfig.SESSION_MAX_AGE || process.env.SESSION_MAX_AGE || 24 * 3600 * 1000,
 };
