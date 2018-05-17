@@ -11,6 +11,7 @@ Description
 - Use ES6/7 + [Airbnb linter rules](https://github.com/airbnb/javascript)
 - Use React + Redux + Saga
 - Use Sass + modules + [react-css-themr](https://github.com/javivelasco/react-css-themr)
+- Store session data into Redis
 
 Installation
 ------------
@@ -18,6 +19,7 @@ Require:
 - node >= 8
 - npm >= 5
 - Use [NewsAPI](https://newsapi.org/) to get you own API key, set it into env variable: NEWS_API_KEY
+- Specify Redis connection URL & Password in env variables: SESSION_STORE_REDIS_URL, SESSION_STORE_REDIS_PASS
  
 Install:
 - npm install
