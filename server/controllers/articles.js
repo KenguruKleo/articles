@@ -1,12 +1,12 @@
 const _get = require('lodash.get');
-const recipesService = require('../services/news-origin');
+const articlesService = require('../services/news-origin');
 const logger = require('../utils/logger');
 
 module.exports = {
   async list(req, res) {
     try {
       const queryParams = req.query || {};
-      const articles = await recipesService.fetchArticles(queryParams);
+      const articles = await articlesService.fetchArticles(queryParams);
       res.send(articles);
     } catch (err) {
       logger.error(err, `Error: ${_get(err, 'response.data.message')}`);
@@ -18,7 +18,7 @@ module.exports = {
     try {
       const { id } = req.params;
       const queryParams = req.query || {};
-      const article = await recipesService.fetchArticlesItem(id, queryParams);
+      const article = await articlesService.fetchArticlesItem(id, queryParams);
       res.send(article);
     } catch (err) {
       logger.error(err, `Error: ${_get(err, 'response.data.message')}`);

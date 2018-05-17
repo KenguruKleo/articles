@@ -1,8 +1,8 @@
-Recipes
+Articles
 =============================================
 **Challenge:**
 
-Create front & back from scratch for show recipes list using React+Redux+clear CSS(SASS)
+Create front & back from scratch for show articles list using React+Redux+clear CSS(SASS)
 Add future like and rate items
 Implement login window with token
 
@@ -51,4 +51,4 @@ Bundle analyzer
 
 Heroku
 -----------
-Open [Recipes on Heroku](https://kengurukleo-recipes.herokuapp.com)
+Open [Articles on Heroku](https://kengurukleo-articles.herokuapp.com)

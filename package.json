@@ -1,7 +1,7 @@
 {
   "name": "kengurukleo",
   "version": "1.0.0",
-  "description": "Recipes",
+  "description": "Articles",
   "engines": {
     "node": ">=8.4.x",
     "npm": ">=5.4.x"
@@ -113,12 +113,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kengurukleo/recipes.git"
+    "url": "git+https://github.com/kengurukleo/articles.git"
   },
   "author": "Konstantin Yemelianov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kengurukleo/recipes/issues"
+    "url": "https://github.com/kengurukleo/articles/issues"
   },
-  "homepage": "https://github.com/kengurukleo/recipes#readme"
+  "homepage": "https://github.com/kengurukleo/articles#readme"
 }
