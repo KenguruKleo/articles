@@ -4,9 +4,12 @@ import * as types from '../actions/types';
 const isPending = (state = false, action = {}) => {
   switch (action.type) {
     case types.LOGIN_REQUEST:
+    case types.AUTH_GET_STATE_REQUEST:
       return true;
     case types.LOGIN_ERROR:
     case types.LOGIN_SUCCESS:
+    case types.AUTH_GET_STATE_SUCCESS:
+    case types.AUTH_GET_STATE_ERROR:
       return false;
     default:
       return state;
@@ -18,8 +21,10 @@ const loggedIn = (state = false, action = {}) => {
     case types.LOGIN_REQUEST:
     case types.LOGIN_ERROR:
     case types.LOGOUT_CLICK:
+    case types.AUTH_GET_STATE_ERROR:
       return false;
     case types.LOGIN_SUCCESS:
+    case types.AUTH_GET_STATE_SUCCESS:
       return true;
     default:
       return state;
@@ -33,6 +38,7 @@ const userName = (state = '', action = {}) => {
     case types.LOGOUT_CLICK:
       return '';
     case types.LOGIN_SUCCESS:
+    case types.AUTH_GET_STATE_SUCCESS:
       return action.payload.userName;
     default:
       return state;
@@ -46,6 +52,7 @@ const token = (state = '', action = {}) => {
     case types.LOGOUT_CLICK:
       return '';
     case types.LOGIN_SUCCESS:
+    case types.AUTH_GET_STATE_SUCCESS:
       return action.payload.token;
     default:
       return state;
