@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const expressSession = require('express-session');
+const RedisStore = require('connect-redis')(expressSession);
 const config = require('./config');
 const routes = require('./routes');
 const { passport } = require('./middlewares');
@@ -21,6 +22,10 @@ function start() {
   app.use(bodyParser.json());
   app.use(expressSession({
     unset: 'destroy',
+    store: new RedisStore({
+      url: config.SESSION_STORE_REDIS_URL,
+      pass: config.SESSION_STORE_REDIS_PASS,
+    }),
     secret: config.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,

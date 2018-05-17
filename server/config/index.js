@@ -15,4 +15,6 @@ module.exports = {
   newsResourceURL: devConfig.newsResourceURL || 'https://newsapi.org/v2',
   SESSION_SECRET: devConfig.SESSION_SECRET || process.env.SESSION_SECRET || 'specify session secret',
   SESSION_MAX_AGE: devConfig.SESSION_MAX_AGE || process.env.SESSION_MAX_AGE || 24 * 3600 * 1000,
+  SESSION_STORE_REDIS_URL: devConfig.SESSION_STORE_REDIS_URL || process.env.SESSION_STORE_REDIS_URL || 'redis://url',
+  SESSION_STORE_REDIS_PASS: devConfig.SESSION_STORE_REDIS_PASS || process.env.SESSION_STORE_REDIS_PASS || 'redis-pass',
 };
