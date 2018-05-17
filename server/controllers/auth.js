@@ -7,10 +7,26 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iot: timestamp }, config.jwt_secret);
 }
 
+function getUserAuthData(user) {
+  return {
+    token: tokenForUser(user),
+    userName: user.userName,
+  };
+}
+
 module.exports = {
 
-  getToken(req, res) {
-    res.send({ token: tokenForUser(req.user), userName: req.user.userName });
+  // get state from session (userName etc.)
+  getState(req, res) {
+    if (req.user) {
+      res.send(getUserAuthData(req.user));
+    } else {
+      res.status(401).send('Unauthorized');
+    }
+  },
+
+  getTokenWithUser(req, res) {
+    res.send(getUserAuthData(req.user));
   },
 
   logout(req, res) {
