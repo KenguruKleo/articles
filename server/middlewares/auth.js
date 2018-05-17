@@ -36,13 +36,22 @@ const jwtLoginStrategy = new JwtStrategy(jwtOptions, async (payload, done) => {
   }
 });
 
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
 passport.use(jwtLoginStrategy);
 passport.use(localLoginStrategy);
 
-const requireAuth = passport.authenticate('jwt', { session: false });
-const requireLogin = passport.authenticate('local', { session: false });
+const requireAuth = passport.authenticate('jwt', { session: true });
+const requireLogin = passport.authenticate('local', { session: true });
 
 module.exports = {
+  passport,
   requireAuth,
   requireLogin,
 };

@@ -1,7 +1,8 @@
 const compression = require('compression');
-const { requireAuth, requireLogin } = require('./auth');
+const { passport, requireAuth, requireLogin } = require('./auth');
 
 module.exports = {
+  passport,
   requireAuth,
   requireLogin,
   compression: compression(),

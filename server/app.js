@@ -2,8 +2,10 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const expressSession = require('express-session');
 const config = require('./config');
 const routes = require('./routes');
+const { passport } = require('./middlewares');
 
 const logger = require('./utils/logger');
 
@@ -15,8 +17,11 @@ function start() {
 
   app.use(morgan('dev', { stream: logger }));
   app.use(cors());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
+  app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   routes(app);
 
